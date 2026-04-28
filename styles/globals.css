@@ -12,23 +12,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Define theme styles */
-body.white {
-  --background-color: #ffffff;
-  --text-color: #000000;
-}
-
-body.dark {
-  --background-color: #000000;
-  --text-color: #ffffff;
-}
-
-/* Apply theme variables */
 body {
   font-family: 'Lato', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  background: #0a0a0a;
+  color: #fafafa;
   overflow-x: hidden;
 }
 
