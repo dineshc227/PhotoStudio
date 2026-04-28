@@ -1,4 +1,5 @@
 import { COLORS } from "@/lib/theme";
+import { useState, useEffect } from "react";
 
 const CORNER_STYLES = [
   { top: "32px", left: "5vw" },
@@ -8,6 +9,16 @@ const CORNER_STYLES = [
 ];
 
 export default function HeroSection({ onScrollTo }) {
+  const [theme, setTheme] = useState("white");
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "white" ? "dark" : "white"));
+  };
+
   return (
     <section
       id="hero"
@@ -202,6 +213,29 @@ export default function HeroSection({ onScrollTo }) {
             background: `linear-gradient(${COLORS.gold}, transparent)`,
           }}
         />
+      </div>
+
+      {/* Theme Toggle Button */}
+      <div
+        style={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+        }}
+      >
+        <button
+          onClick={toggleTheme}
+          style={{
+            padding: "8px 16px",
+            background: theme === "white" ? "#000" : "#fff",
+            color: theme === "white" ? "#fff" : "#000",
+            border: "none",
+            borderRadius: 4,
+            cursor: "pointer",
+          }}
+        >
+          {theme === "white" ? "Switch to Dark" : "Switch to White"}
+        </button>
       </div>
     </section>
   );
